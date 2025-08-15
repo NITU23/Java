@@ -10,13 +10,34 @@ class Mobile {
     String name;
     String cost;
 
+    static { // static block only executed only one time... //the class loads first & then
+             // constructor runs...so that's why static block is printend first
+        phone = "Apple";
+        System.out.println("inside the static block");
+    }
+
+    Mobile() { // it will be executed every time when an object is created...
+        name = "Smarty";
+        cost = "1000";
+        System.out.println("inside the constructor ");
+    }
+
     public void show() {
         System.out.println("name :" + name + " cost: " + cost + " Phone: " + phone);
     }
+
+    public static void show1() {
+        System.out.println("Hello I am static method of mobile class");
+    }
+
+    public static void show2(Mobile obj) {
+        System.out.println("name :" + obj.name + " cost: " + obj.cost + " Phone: " + obj.phone);
+    }
+
 }
 
 class Practice {
-    public static void main(String a[]) {
+    public static void main(String a[]) throws ClassNotFoundException {
         /*
          * example of switch case
          * //this is the new sytnax for switch case in java
@@ -95,24 +116,38 @@ class Practice {
          * System.out.println(st2.hashCode()); // so in this after appending the string
          * it address is not changed..
          */
+        /*
+         * Mobile mob1 = new Mobile();
+         * mob1.name = "Apple";
+         * mob1.cost = "80000";
+         * 
+         * Mobile mob2 = new Mobile();
+         * mob2.name = "One Plus";
+         * mob2.cost = "20000";
+         * 
+         * // mob1.phone = "Smart Phone"; we can assign the static variable using
+         * // object...but it is not good.
+         * 
+         * Mobile.phone = "Smart Phone"; // we should always use the static variable
+         * using class.
+         * mob1.show(); // output : name :Apple cost: 80000 Phone: Smart Phone
+         * mob2.show(); // output : name :One Plus cost: 20000 Phone: Smart Phone
+         * 
+         * // this means that static variable are shared across all the objects of a
+         * // class....
+         * Mobile.show1(); // static method can be called using the class name like the
+         * static variable.
+         * 
+         * Mobile.show2(mob2); // we can call the static variable using the obj
+         * reference.. static method can
+         * // not have not static variable.
+         * 
+         * Mobile obj3 = new Mobile();
+         * obj3.show(); // here we have not provided the values of object so it got the
+         * values from the
+         * // constructor.
+         */
 
-        Mobile mob1 = new Mobile();
-        mob1.name = "Apple";
-        mob1.cost = "80000";
-
-        Mobile mob2 = new Mobile();
-        mob2.name = "One Plus";
-        mob2.cost = "20000";
-
-        // mob1.phone = "Smart Phone"; we can assign the static variable using
-        // object...but it is not good.
-
-        Mobile.phone = "Smart Phone"; // we should always use the static variable using class.
-        mob1.show(); // output : name :Apple cost: 80000 Phone: Smart Phone
-        mob2.show(); // output : name :One Plus cost: 20000 Phone: Smart Phone
-
-        // this means that static variable are shared across all the objects of a
-        // class....
-
+        /* Class.forName("Mobile"); // this will only loads the class.. */
     }
 }
