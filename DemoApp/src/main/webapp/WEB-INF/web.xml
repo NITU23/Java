@@ -3,7 +3,9 @@
 	xmlns="http://java.sun.com/xml/ns/j2ee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-	<servlet>
+	
+	<!--   this the method to use servlet using xml, but we can use the servlet using annotation as well. -->
+	<!-- <servlet>
 		<servlet-name>AddServlet</servlet-name>
 		<servlet-class>com.addServlet.AddServlet</servlet-class>
 	</servlet>
@@ -11,8 +13,8 @@
 		<servlet-name>AddServlet</servlet-name>
 		<url-pattern>/add</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>SqServlet</servlet-name>
 		<servlet-class>com.addServlet.SqServlet</servlet-class>
@@ -21,4 +23,12 @@
 		<servlet-name>SqServlet</servlet-name>
 		<url-pattern>/sq</url-pattern>
 	</servlet-mapping>
+	<context-param>
+		<param-name>Test</param-name>
+		<param-value>test-value</param-value>
+	</context-param>
+	<context-param>
+		<param-name>Test2</param-name>
+		<param-value>test-value2</param-value>
+	</context-param> -->
 </web-app>

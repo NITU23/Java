@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
+@WebServlet("/add")
 public class AddServlet extends HttpServlet {
 
 	private void processRequest(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -43,7 +45,10 @@ public class AddServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		System.out.println("I am in gett");
-		processRequest(req, res);
+		// servlet context are shared accorss all servlets...while servlet config is only for that servlet.
+        ServletContext ctx = getServletContext();
+        System.out.println(ctx.getInitParameter("Test"));
+		//processRequest(req, res);
 	}
 
 	@Override
