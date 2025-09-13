@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+   <bean  id = "dev" class= "com.example.Dev" autowire="byType" >
+    <!-- <property name="age" value="12" /> We can assign the value using xml file as well. -->
+    <!-- <constructor-arg  value="50"/> commented for not using laptop class
+     <property name="laptop" ref="lap1" /> -->
+     <constructor-arg  value="50" />
+     <!-- <property name="com" ref="desk1"/> commented as we are autowire --> 
+   </bean>
+    <bean id ="com" class= "com.example.Laptop"  >
+
+   </bean>
+    <bean id ="desk1" class= "com.example.Desktop" primary="true" >
+
+   </bean>
+</beans>
